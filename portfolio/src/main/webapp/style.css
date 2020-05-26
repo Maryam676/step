@@ -1,16 +1,3 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-
-/*Welcome message*/
-#greeting-container {
-  padding: 30px;
-  font-size: 30px;
-  text-align: center;
-  background: pink;
-}
 
 /*Add a black background to the page*/
 body {
@@ -24,4 +11,23 @@ body {
   font-size: 30px;
   text-align: center;
   background: pink;
+}
+
+/*Split the content into two sections down the body*/
+.left {
+  width: 60%;
+  float: left;
+}
+
+.right {
+  width: 40%;
+  float: left;
+}
+
+/*Each stack is a container in the body*/
+.stack {
+  background-color: pink;
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
 }

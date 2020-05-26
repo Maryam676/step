@@ -40,3 +40,45 @@ function clickIceCream() {
     alert("Sorry, not an option!");
   }
 }
+
+/*User decides which ice cream they like better*/
+function clickComfFood() {
+  let food = prompt("Do you prefer pasta or pizza?", "");
+  if (food == "pizza") {
+    alert("My favorite is veggie. But pasta wins over pizza.");
+  }
+  else if (food == "pasta") {
+    alert("You can never have enough pasta");
+  }
+  else {
+    alert("Sorry, not an option!");
+  }
+}
+
+/*User decides which leisure activity they like better*/
+function clickLeisure() {
+  let activity = prompt("Canoeing or hiking?", "");
+  if (activity == "hiking") {
+    alert("Hiking is obviously better");
+  }
+  else if (activity == "canoeing") {
+    alert("We differ on this one, I have a phobia of open water");
+  }
+  else {
+    alert("Sorry, not an option!");
+  }
+}
+
+/*User decides which vacation destination they like better*/
+function clickVacation() {
+  let place = prompt("Would you prefer to visit Venice or Dubai for a vacation?", "");
+  if (place == "dubai") {
+    alert("Let's go see the tallest skyscraper in the world!");
+  }
+  else if (place == "venice") {
+    alert("Hmm, maybe 2nd place?");
+  }
+  else {
+    alert("Sorry, not an option!");
+  }
+}

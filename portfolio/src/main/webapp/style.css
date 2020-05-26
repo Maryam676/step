@@ -1,9 +1,45 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+
+/*Add a black background to the page*/
+body {
+  font-family: Comic Sans MS;
+  padding: 15px;
+  background: black;
 }
 
-#greeting-container {
-  margin-top: 20px;
+.heading {
+  padding: 30px;
+  font-size: 30px;
+  text-align: center;
+  background: pink;
+}
+
+/*Split the content into two sections down the body*/
+.left {
+  width: 60%;
+  float: left;
+}
+
+/*Add a space between columns*/
+.right {
+  width: 40%;
+  padding-left: 15px;
+  float: left;
+}
+
+/*Each stack is a container box in the body*/
+.stack {
+  background-color: pink;
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.line:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+* {
+  box-sizing: border-box;
 }

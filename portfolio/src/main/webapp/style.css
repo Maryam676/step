@@ -19,12 +19,14 @@ body {
   float: left;
 }
 
+/*Add a space between columns*/
 .right {
   width: 40%;
+  padding-left: 15px;
   float: left;
 }
 
-/*Each stack is a container in the body*/
+/*Each stack is a container box in the body*/
 .stack {
   background-color: pink;
   text-align: center;

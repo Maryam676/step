@@ -44,3 +44,11 @@ body {
 * {
   box-sizing: border-box;
 }
+
+/*Preference buttons for Let's Compare section*/
+.button {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  padding: 20px 20px;
+}

@@ -26,3 +26,17 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+
+/*User decides which ice cream they like better*/
+function clickIceCream() {
+  let flavor = prompt("Chocolate or vanilla?", "");
+  if (flavor == "chocolate") {
+    alert("Nothing beats chocolate ice cream!");
+  }
+  else if (flavor == "vanilla") {
+    alert("I have to disagree :(");
+  }
+  else {
+    alert("Sorry, not an option!");
+  }
+}

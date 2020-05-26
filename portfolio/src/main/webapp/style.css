@@ -13,7 +13,7 @@
 }
 
 /*Add a black background to the page*/
-#body {
+body {
   font-family: Comic Sans MS;
   padding: 15px;
   background: black;

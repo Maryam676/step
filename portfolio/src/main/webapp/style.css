@@ -4,6 +4,10 @@
   width: 650px;
 }
 
+/*Welcome message*/
 #greeting-container {
-  margin-top: 20px;
+  padding: 30px;
+  font-size: 30px;
+  text-align: center;
+  background: pink;
 }

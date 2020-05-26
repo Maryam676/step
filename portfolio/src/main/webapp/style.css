@@ -33,3 +33,9 @@ body {
   padding: 15px;
   margin-top: 15px;
 }
+
+.line:after {
+  content: "";
+  display: table;
+  clear: both;
+}

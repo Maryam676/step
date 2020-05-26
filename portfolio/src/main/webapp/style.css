@@ -11,3 +11,17 @@
   text-align: center;
   background: pink;
 }
+
+/*Add a black background to the page*/
+#body {
+  font-family: Comic Sans MS;
+  padding: 15px;
+  background: black;
+}
+
+.heading {
+  padding: 30px;
+  font-size: 30px;
+  text-align: center;
+  background: pink;
+}

@@ -28,7 +28,17 @@ body {
 
 /*Each stack is a container box in the body*/
 .stack {
-  /*background-color: pink;*/
+  background-color: pink;
+  text-align: center;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Each stack is a container box in the body*/
+.abm {
+  background-image: url("/image/uic.png");
+  background-repeat: no-repeat;
+  background-position: center;
   text-align: center;
   padding: 15px;
   margin-top: 15px;

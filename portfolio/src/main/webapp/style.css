@@ -7,10 +7,14 @@ body {
 }
 
 .heading {
+  background-image: url("/images/chi.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 30px;
   font-size: 30px;
   text-align: center;
-  background: pink;
+  color: white;
 }
 
 /*Split the content into two sections down the body*/
@@ -72,6 +76,18 @@ body {
 /*Stack style for Vacations*/
 .travel {
   background-image: url("/images/tree.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Social Media*/
+.media {
+  background-image: url("/images/link.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

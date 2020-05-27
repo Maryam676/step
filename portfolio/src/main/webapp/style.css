@@ -28,7 +28,7 @@ body {
 
 /*Each stack is a container box in the body*/
 .stack {
-  background-color: pink;
+  /*background-color: pink;*/
   text-align: center;
   padding: 15px;
   margin-top: 15px;

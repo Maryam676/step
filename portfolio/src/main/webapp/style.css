@@ -57,6 +57,30 @@ body {
   margin-top: 15px;
 }
 
+/*Stack style for Projects*/
+.proj {
+  background-image: url("/images/blue.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Vacations*/
+.travel {
+  background-image: url("/images/tree.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
 .line:after {
   content: "";
   display: table;

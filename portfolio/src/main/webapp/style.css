@@ -34,12 +34,24 @@ body {
   margin-top: 15px;
 }
 
-/*Each stack is a container box in the body*/
+/*Stack style for About Me*/
 .abm {
   background-image: url("/images/uic.png");
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Let's Compare*/
+.compare {
+  background-image: url("/images/canoe.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  color: white;
   padding: 15px;
   margin-top: 15px;
 }

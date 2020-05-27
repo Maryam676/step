@@ -36,7 +36,7 @@ body {
 
 /*Each stack is a container box in the body*/
 .abm {
-  background-image: url("/image/uic.png");
+  background-image: url("/images/uic.png");
   background-repeat: no-repeat;
   background-position: center;
   text-align: center;

@@ -6,11 +6,16 @@ body {
   background: black;
 }
 
+/*Specify the style of the welcome banner*/
 .heading {
+  background-image: url("/images/chi.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 30px;
   font-size: 30px;
   text-align: center;
-  background: pink;
+  color: white;
 }
 
 /*Split the content into two sections down the body*/
@@ -34,6 +39,86 @@ body {
   margin-top: 15px;
 }
 
+/*Stack style for About Me*/
+.abm {
+  background-image: url("/images/uic.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Let's Compare*/
+.compare {
+  background-image: url("/images/canoe.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Projects*/
+.proj {
+  background-image: url("/images/blue.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Vacations*/
+.travel {
+  background-image: url("/images/tree.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Social Media*/
+.media {
+  background-image: url("/images/link.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Coursework*/
+.course {
+  background-image: url("/images/class.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Skills*/
+.skill {
+  background-image: url("/images/skill.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
 .line:after {
   content: "";
   display: table;
@@ -51,4 +136,5 @@ body {
   font-size: 20px;
   color:rgb(73, 38, 138);
   padding: 20px 20px;
+  margin-top: 10px;
 }

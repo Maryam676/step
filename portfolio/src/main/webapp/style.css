@@ -6,6 +6,7 @@ body {
   background: black;
 }
 
+/*Specify the style of the welcome banner*/
 .heading {
   background-image: url("/images/chi.png");
   background-repeat: no-repeat;

@@ -97,6 +97,29 @@ body {
   margin-top: 15px;
 }
 
+/*Stack style for Coursework*/
+.course {
+  background-image: url("/images/class.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+/*Stack style for Skills*/
+.skill {
+  background-image: url("/images/skill.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
 .line:after {
   content: "";
   display: table;

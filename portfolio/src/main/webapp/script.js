@@ -83,30 +83,24 @@ function clickVacation() {
   }
 }
 
-/* Fetches a message from the /data page*/
+
+/* Fetches message from the /data page */
 function getMessage() {
-  console.log('Fetching the request');
-
-  const responsePromise = fetch('/data');
-
-  // Pass response into handleResponse when request complete
-  responsePromise.then(handleResponse);
+  fetch('/data').then(response => response.json()).then((msgs) => {
+    const statsListElement = document.getElementById('msg-container');
+    statsListElement.innerHTML = '';
+    
+    // Use HTML to display each message
+    for (var fruit in msgs) {
+      statsListElement.appendChild(
+        createListElement(msgs[fruit]));
+    }
+  });
 }
 
-/* Convert response to text and pass to addtoDom()*/
-function handleResponse(response) {
-  console.log('Handling the response.');
-
-  const textPromise = response.text();
-
-  textPromise.then(addToDom);
-}
-
-/* Adds the server message to the DOM. */
-function addToDom(quote) {
-  console.log('Adding message to dom: ' + quote);
-
-  /*The msg container displays the quote*/
-  const msgContainer = document.getElementById('msg-container');
-  msgContainer.innerText = quote;
+/* Creates a <li> element for every item in json */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }

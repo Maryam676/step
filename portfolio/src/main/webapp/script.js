@@ -83,40 +83,30 @@ function clickVacation() {
   }
 }
 
-/**
- * Fetches a random quote from the server and adds it to the DOM.
- */
-function getRandomQuote() {
+/* Fetches a message from the /data page*/
+function getMessage() {
   console.log('Fetching the request');
 
-  // The fetch() function returns a Promise because the request is asynchronous.
   const responsePromise = fetch('/data');
 
-  // When the request is complete, pass the response into handleResponse().
+  // Pass response into handleResponse when request complete
   responsePromise.then(handleResponse);
 }
 
-/**
- * Handles response by converting it to text and passing the result to
- * addQuoteToDom().
- */
+/* Convert response to text and pass to addtoDom()*/
 function handleResponse(response) {
   console.log('Handling the response.');
 
-  // response.text() returns a Promise, because the response is a stream of
-  // content and not a simple variable.
   const textPromise = response.text();
 
-  // When the response is converted to text, pass the result into the
-  // addQuoteToDom() function.
-  textPromise.then(addQuoteToDom);
+  textPromise.then(addToDom);
 }
 
-/** Adds a random quote to the DOM. */
-function addQuoteToDom(quote) {
-  console.log('Adding quote to dom: ' + quote);
+/* Adds the server message to the DOM. */
+function addToDom(quote) {
+  console.log('Adding message to dom: ' + quote);
 
-  /*The quote container displays the quote*/
-  const quoteContainer = document.getElementById('quote-container');
-  quoteContainer.innerText = quote;
+  /*The msg container displays the quote*/
+  const msgContainer = document.getElementById('msg-container');
+  msgContainer.innerText = quote;
 }

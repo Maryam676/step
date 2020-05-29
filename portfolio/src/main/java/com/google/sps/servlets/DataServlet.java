@@ -17,6 +17,9 @@ package com.google.sps.servlets;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
+import com.google.appengine.api.datastore.PreparedQuery;
+import com.google.appengine.api.datastore.Query;
+import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import com.google.gson.Gson;
 
 
@@ -37,7 +41,7 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     String userComment = getParameter(request, "comments", "");
-    msgs.add(userComment);
+    //msgs.add(userComment);
 
     // Create a visitor entity and populate datastore with comments
     Entity taskEntity = new Entity("Visitor");
@@ -45,10 +49,6 @@ public class DataServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
-
-    // Allow /data page to show user comments for one session
-    response.setContentType("text/html;");
-    response.getWriter().println(msgs);
   }
 
   // Return empty string if no comment, otherwise return text
@@ -64,9 +64,21 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    // Obtain comments from datastore and filter them into results query
+    Query query = new Query("Visitor");
+    DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+    PreparedQuery results = datastore.prepare(query);
+
+    // Load the comments on the webpage
+    for (Entity entity : results.asIterable()) {
+      String visitorComment = (String) entity.getProperty("comments");
+      msgs.add(visitorComment);
+    }
+
     Gson gson = new Gson();
-    String json = gson.toJson(msgs);
+
     response.setContentType("application/json;");
-    response.getWriter().println(json);
+    response.getWriter().println(gson.toJson(msgs));
   }
 }

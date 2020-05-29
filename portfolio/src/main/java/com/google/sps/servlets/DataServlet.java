@@ -42,10 +42,11 @@ public class DataServlet extends HttpServlet {
 
     String userComment = getParameter(request, "comments", "");
 
-    // Create a visitor entity and populate datastore with comments
+    // Create a visitor entity with comment string as the only property
     Entity taskEntity = new Entity("Visitor");
     taskEntity.setProperty("comments", userComment);
 
+    // Store the comment into the datastore
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
   }
@@ -69,14 +70,14 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
-    // Load the comments on the webpage
+    // Load the comments into the list of messages
     for (Entity entity : results.asIterable()) {
       String visitorComment = (String) entity.getProperty("comments");
       msgs.add(visitorComment);
     }
 
+    // Display the messages
     Gson gson = new Gson();
-
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(msgs));
   }

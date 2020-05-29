@@ -36,11 +36,6 @@ public class DataServlet extends HttpServlet {
 
     String userComment = getParameter(request, "comments", "");
     msgs.add(userComment);
-    // String[] words = userComment.split("\\s*,\\s*");
-    // for (int i = 0; i < words.length; i++) {
-    //   System.out.println(words[i]);
-    //   msgs.add(words[i]);
-    // }
 
     response.setContentType("text/html;");
     response.getWriter().println(msgs);
@@ -59,9 +54,6 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // response.setContentType("text/html;");
-    // response.getWriter().println("<h1>Hello Maryam Ahmed!</h1>");
-
     Gson gson = new Gson();
     String json = gson.toJson(msgs);
     response.setContentType("application/json;");

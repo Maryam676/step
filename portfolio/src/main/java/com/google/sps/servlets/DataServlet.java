@@ -41,7 +41,6 @@ public class DataServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     String userComment = getParameter(request, "comments", "");
-    //msgs.add(userComment);
 
     // Create a visitor entity and populate datastore with comments
     Entity taskEntity = new Entity("Visitor");

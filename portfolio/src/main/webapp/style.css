@@ -143,3 +143,10 @@ body {
 .msg-container {
   margin-top: 20px;
 }
+
+/*Specify the style of the comment section*/
+.comments {
+  background-color: grey;
+  padding: 30px;
+  color: white;
+}

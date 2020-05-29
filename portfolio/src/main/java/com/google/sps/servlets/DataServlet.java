@@ -27,13 +27,34 @@ import com.google.gson.Gson;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-
   public ArrayList<String> msgs = new ArrayList<String>();
 
-  public void init() {
-    msgs.add("Apple");
-    msgs.add("Banana");
-    msgs.add("Cantaloupe");
+  @Override
+
+  // Get text input from comment form and respond with result
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    String userComment = getParameter(request, "comments", "");
+    msgs.add(userComment);
+    // String[] words = userComment.split("\\s*,\\s*");
+    // for (int i = 0; i < words.length; i++) {
+    //   System.out.println(words[i]);
+    //   msgs.add(words[i]);
+    // }
+
+    response.setContentType("text/html;");
+    response.getWriter().println(msgs);
+  }
+
+  // Return empty string if no comment, otherwise return text
+  private String getParameter(HttpServletRequest request, String name, String defaultValue) {
+    String value = request.getParameter(name);
+    if (value == null) {
+      return defaultValue;
+    }
+    else {
+      return value;
+    }
   }
 
   @Override

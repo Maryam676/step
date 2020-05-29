@@ -115,20 +115,22 @@
 
     <div class="comments">
       <h2>Server messages and comments</h2>
-        <!--Server messages-->
-        <p>Click here to see server message:</p>
-        <button onclick="getMessage()">Fetch message!</button>
-        <div id="msg-container"></div>
 
         <!--Post-->
         <form action="/data" method="POST">
 
-        <p>Enter a comma-separated list of words:</p>
-        <textarea name="comments">one, two, three</textarea>
+        <p>Enter a comment:</p>
+        <textarea name="comments"></textarea>
         <br/><br/>
 
         <input type="submit" />
         </form>
+
+        <!--Server messages-->
+        <p>Click here to retrieve your message from the server</p>
+        <button onclick="getMessage()">Fetch message!</button>
+        <div id="msg-container"></div>
+
     </div>
   </body>
 </html>

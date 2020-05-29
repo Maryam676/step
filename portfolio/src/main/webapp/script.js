@@ -91,9 +91,9 @@ function getMessage() {
     statsListElement.innerHTML = '';
     
     // Use HTML to display each message
-    for (var fruit in msgs) {
+    for (var comment in msgs) {
       statsListElement.appendChild(
-        createListElement(msgs[fruit]));
+        createListElement(msgs[comment]));
     }
   });
 }

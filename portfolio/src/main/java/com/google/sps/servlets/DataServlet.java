@@ -37,7 +37,6 @@ import com.google.gson.Gson;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  public ArrayList<String> msgs = new ArrayList<String>();
 
   @Override
   // Get text input from comment form and respond with result
@@ -76,6 +75,8 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    ArrayList<String> msgs = new ArrayList<String>();
 
     // Obtain comments from datastore and filter them into results query
     Query query = new Query("Visitor");

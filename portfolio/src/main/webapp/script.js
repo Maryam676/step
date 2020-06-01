@@ -98,13 +98,11 @@ function getMessage() {
   });
 }
 
-// /* Fetches message from the /data page */
-// function deleteComments() {
-//   fetch('/delete-data').then(response => response.text()).then((msgs) => {
-//     const statsListElement = document.getElementById('msg-container');
-//     statsListElement.innerHTML = '';
-//   });
-// }
+/* Deletes all current messages */
+function deleteComments() {
+  let request = new Request('delete-data', {method: 'POST'});
+  fetch(request);
+}
 
 /* Creates a <li> element for every item in json */
 function createListElement(text) {
@@ -128,12 +126,12 @@ function drawChart() {
   const data = new google.visualization.DataTable();
   data.addColumn('string', 'Genre');
   data.addColumn('number', 'Count');
-        data.addRows([
-          ['High Fantasy', 17],
-          ['Realistic Fiction', 6],
-          ['Urban Fantasy', 4],
-          ['Horror', 5]
-        ]);
+    data.addRows([
+      ['High Fantasy', 17],
+      ['Realistic Fiction', 6],
+      ['Urban Fantasy', 4],
+      ['Horror', 5]
+    ]);
 
   const options = {
     'width':400,

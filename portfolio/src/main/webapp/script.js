@@ -83,10 +83,11 @@ function clickVacation() {
   }
 }
 
-
 /* Fetches message from the /data page */
 function getMessage() {
-  fetch('/data').then(response => response.json()).then((msgs) => {
+  let limit = document.getElementById("limitUserComments").value; //get the limit
+
+  fetch(`/data?limit=${limit}`).then(response => response.json()).then((msgs) => {
     const statsListElement = document.getElementById('msg-container');
     statsListElement.innerHTML = '';
     
@@ -96,6 +97,12 @@ function getMessage() {
         createListElement(msgs[comment]));
     }
   });
+}
+
+/* Clear comment section and show refreshed number of comments */
+function breakComments() {
+  document.getElementById("msg-container").innerHTML=""; //clear out current comments
+  getMessage(); //refetch comments
 }
 
 /* Deletes all current messages */
@@ -111,7 +118,7 @@ function createListElement(text) {
   return liElement;
 }
 
-/** Creates a map and adds it to the page. */
+/* Creates a map and adds it to the page. */
 function createMap() {
   const map = new google.maps.Map(
       document.getElementById('map'),
@@ -121,7 +128,7 @@ function createMap() {
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-/* Add a chart to the webpage */
+/* Add a chart to webpage */
 function drawChart() {
   const data = new google.visualization.DataTable();
   data.addColumn('string', 'Genre');

@@ -83,10 +83,17 @@ public class DataServlet extends HttpServlet {
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    // Limit the amount of comments that show up
+    int userLimit = Integer.parseInt(getParameter(request, "limit", ""));
+
     // Load the comments into the list of messages
     for (Entity entity : results.asIterable()) {
       String visitorComment = (String) entity.getProperty("comments");
       msgs.add(visitorComment);
+      // Break out of loop if # of comments too large
+      if(msgs.size() >= userLimit) {
+        break;
+      }
     }
 
     // Display the messages

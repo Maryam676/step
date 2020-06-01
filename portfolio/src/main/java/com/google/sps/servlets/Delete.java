@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import com.google.gson.Gson;
 
-
+// Deletes all the comment data on the page
 @WebServlet("/delete-data")
 public class Delete extends HttpServlet {
 

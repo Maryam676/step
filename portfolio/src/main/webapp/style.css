@@ -140,6 +140,7 @@ body {
   margin-top: 10px;
 }
 
+/*Contains all the site visitor comments*/
 .msg-container {
   margin-top: 20px;
 }
@@ -150,4 +151,19 @@ body {
   padding: 30px;
   color: white;
   margin-top: 30px;
+}
+
+/* Specify the style of the map section*/
+.mapAPI {
+  background-color: grey;
+  padding: 30px;
+  color: white;
+  margin-top: 30px;
+}  
+
+/*Add a map to the page*/
+#map {
+  border: thin solid black;
+  height: 500px;
+  width: 500px;
 }

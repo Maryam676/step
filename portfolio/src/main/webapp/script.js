@@ -83,10 +83,11 @@ function clickVacation() {
   }
 }
 
-
 /* Fetches message from the /data page */
 function getMessage() {
-  fetch('/data').then(response => response.json()).then((msgs) => {
+  let limit = document.getElementById("limitUserComments").value; //get the limit
+
+  fetch(`/data?limit=${limit}`).then(response => response.json()).then((msgs) => {
     const statsListElement = document.getElementById('msg-container');
     statsListElement.innerHTML = '';
     
@@ -98,9 +99,53 @@ function getMessage() {
   });
 }
 
+/* Clear comment section and show refreshed number of comments */
+function breakComments() {
+  document.getElementById("msg-container").innerHTML=""; //clear out current comments
+  getMessage(); //refetch comments
+}
+
+// /* Deletes all current messages */
+// function deleteComments() {
+//   let request = new Request('/delete-data', {method: 'POST'});
+//   fetch(request);
+// }
+
 /* Creates a <li> element for every item in json */
 function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
+
+/* Creates a map and adds it to the page. */
+function createMap() {
+  const map = new google.maps.Map(
+      document.getElementById('map'),
+      {center: {lat: 37.422, lng: -122.084}, zoom: 16});
+}
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+/* Add a chart to webpage */
+function drawChart() {
+  const data = new google.visualization.DataTable();
+  data.addColumn('string', 'Genre');
+  data.addColumn('number', 'Count');
+    data.addRows([
+      ['High Fantasy', 17],
+      ['Realistic Fiction', 6],
+      ['Urban Fantasy', 4],
+      ['Horror', 5]
+    ]);
+
+  const options = {
+    'width':400,
+    'height':400
+  };
+
+  const chart = new google.visualization.PieChart(
+      document.getElementById('chart-container'));
+  chart.draw(data, options);
 }

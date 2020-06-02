@@ -14,6 +14,9 @@
 
 package com.google.sps.servlets;
 
+import com.google.cloud.language.v1.Document;
+import com.google.cloud.language.v1.LanguageServiceClient;
+import com.google.cloud.language.v1.Sentiment;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -34,13 +37,21 @@ import com.google.gson.Gson;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  public ArrayList<String> msgs = new ArrayList<String>();
 
   @Override
   // Get text input from comment form and respond with result
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
     String userComment = getParameter(request, "comments", "");
+
+    // // Sentiment analysis
+    // Document doc = Document.newBuilder().setContent(userComment).setType(Document.Type.PLAIN_TEXT).build();
+    // LanguageServiceClient languageService = LanguageServiceClient.create();
+    // Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
+    // float score = sentiment.getScore();
+    // languageService.close();
+
+    // System.out.println("The sentiment score of the comment is: " + score);
 
     // Create a visitor entity with comment string as the only property
     Entity taskEntity = new Entity("Visitor");
@@ -65,15 +76,24 @@ public class DataServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+    ArrayList<String> msgs = new ArrayList<String>();
+
     // Obtain comments from datastore and filter them into results query
     Query query = new Query("Visitor");
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
 
+    // Limit the amount of comments that show up
+    int userLimit = Integer.parseInt(getParameter(request, "limit", ""));
+
     // Load the comments into the list of messages
     for (Entity entity : results.asIterable()) {
       String visitorComment = (String) entity.getProperty("comments");
       msgs.add(visitorComment);
+      // Break out of loop if # of comments too large
+      if(msgs.size() >= userLimit) {
+        break;
+      }
     }
 
     // Display the messages

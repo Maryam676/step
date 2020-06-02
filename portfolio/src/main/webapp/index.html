@@ -6,9 +6,11 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF4u5Ubgx4V0PguNKUD8OlsJvlRvtY6LE"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createMap();">
 
     <!--This is the welcome message-->
     <div class="heading">
@@ -110,27 +112,50 @@
 
       </div>
 
+      <!--API for chart of reading genres-->
+      <div class="compare">
+        <h2>A Summary of my Reading List</h2>
+        <div id="chart-container"></div>
+      </div>
+
     </div>
     </div>
 
+    <!--Allow a site visitor to leave a comment-->
     <div class="comments">
       <h2>Leave a Message</h2>
 
         <!--Post-->
         <form action="/data" method="POST">
-
-        <p>Enter a comment:</p>
-        <textarea name="comments"></textarea>
-        <br/><br/>
-
-        <input type="submit" />
+          <p>Enter a comment:</p>
+          <textarea name="comments"></textarea>
+          <br/><br/>
+          <input type="submit" />
         </form>
 
         <!--Server messages-->
         <p>Click here to retrieve comments:</p>
-        <button onclick="getMessage()">Fetch message!</button>
+        <button onclick="getMessage()">Fetch messages!</button>
         <div id="msg-container"></div>
 
+        <!--Set a limit to the number of comments displayed with selection options-->  
+        <label for="limit">Choose a limit to the # of Comments</label>
+        <select id="limitUserComments" onchange="breakComments()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+
+        <!--Provide option for clearing out all comments-->
+        <button onclick="deleteComments()">Delete all comments</button>
+
     </div>
+
+    <!--Display a map on the page-->
+    <div class="mapAPI">
+      <h2>Map</h2>
+      <div id="map"></div>
+    </div>
+
   </body>
 </html>

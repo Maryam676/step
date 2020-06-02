@@ -6,10 +6,11 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAF4u5Ubgx4V0PguNKUD8OlsJvlRvtY6LE"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="createMap();">
 
     <!--This is the welcome message-->
     <div class="heading">
@@ -146,8 +147,13 @@
         </select>
 
         <!--Provide option for clearing out all comments-->
-        <button onclick="deleteComments()">Delete all comments</button>
+        <!-- <button onclick="deleteComments()">Delete all comments</button> -->
 
+    </div>
+
+    <div class="mapAPI">
+      <h2>Map</h2>
+      <div id="map"></div>
     </div>
 
   </body>

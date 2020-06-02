@@ -105,11 +105,11 @@ function breakComments() {
   getMessage(); //refetch comments
 }
 
-/* Deletes all current messages */
-function deleteComments() {
-  let request = new Request('delete-data', {method: 'POST'});
-  fetch(request);
-}
+// /* Deletes all current messages */
+// function deleteComments() {
+//   let request = new Request('/delete-data', {method: 'POST'});
+//   fetch(request);
+// }
 
 /* Creates a <li> element for every item in json */
 function createListElement(text) {

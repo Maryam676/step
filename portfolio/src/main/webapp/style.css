@@ -64,7 +64,7 @@ body {
 }
 
 /*Stack style for Reading List*/
-.compare {
+.books {
   background-image: url("/images/book.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -180,7 +180,8 @@ body {
   width: 500px;
 }
 
-/*Reading list chart*/
 #chart-container {
   border: thin solid black;
+  position: center;
+  width: 100%;
 }

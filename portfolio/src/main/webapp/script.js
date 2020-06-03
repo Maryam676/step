@@ -122,7 +122,98 @@ function createListElement(text) {
 function createMap() {
   const map = new google.maps.Map(
       document.getElementById('map'),
-      {center: {lat: 37.422, lng: -122.084}, zoom: 16});
+      {center: {lat: 41.994973, lng: -88.195170}, zoom: 7});
+
+  /* Places I've been to */
+  const sixFlagsMarker = new google.maps.Marker({
+    position: {lat: 42.370377, lng: -87.936004},
+    map: map,
+    title: 'Six Flags Great America'
+  });
+
+  const milleniumMarker = new google.maps.Marker({
+    position: {lat: 41.882643, lng: -87.623303},
+    map: map,
+    title: 'Cloud Gate'
+  });
+
+  const lakeMarker = new google.maps.Marker({
+    position: {lat: 44.169149, lng: -78.854033},
+    map: map,
+    title: 'Lake Scugog'
+  });
+
+  const simcoeMarker = new google.maps.Marker({
+    position: {lat: 44.427053, lng: -79.375320},
+    map: map,
+    title: 'Lake Simcoe'
+  });
+
+  const bridgeMarker = new google.maps.Marker({
+    position: {lat: 42.998945, lng: -82.423804},
+    map: map,
+    title: 'Blue Water International Bridge'
+  });
+
+  const lansingMarker = new google.maps.Marker({
+    position: {lat: 42.738749, lng: -84.510426},
+    map: map,
+    title: 'Lansing, MI'
+  });
+
+  const bufMarker = new google.maps.Marker({
+    position: {lat: 42.886408, lng: -78.887447},
+    map: map,
+    title: 'Buffalo, NY'
+  });
+
+  const cleMarker = new google.maps.Marker({
+    position: {lat: 41.476519, lng: -81.680194},
+    map: map,
+    title: 'Cleveland, OH'
+  });
+
+  const lakeONMarker = new google.maps.Marker({
+    position: {lat: 43.809140, lng: -79.050311},
+    map: map,
+    title: 'Lake Ontario'
+  });
+
+  const torMarker = new google.maps.Marker({
+    position: {lat: 43.649671, lng: -79.379451},
+    map: map,
+    title: 'Toronto, ON'
+  });
+
+  const misMarker = new google.maps.Marker({
+    position: {lat: 43.586309, lng: -79.644368},
+    map: map,
+    title: 'Mississauga, ON'
+  });
+
+  const niagaraMarker = new google.maps.Marker({
+    position: {lat: 43.089766, lng: -79.069428},
+    map: map,
+    title: 'Niagara Falls'
+  });
+
+  const abuDhabiMarker = new google.maps.Marker({
+    position: {lat: 24.441498, lng: 54.649505},
+    map: map,
+    title: 'Abu Dhabi'
+  });
+
+  const towerMarker = new google.maps.Marker({
+    position: {lat: 17.361540, lng: 78.474691},
+    map: map,
+    title: 'Charminar, Old City'
+  });
+
+  const bangaloreMarker = new google.maps.Marker({
+    position: {lat: 12.951283, lng: 77.585610},
+    map: map,
+    title: 'Bangalore'
+  });
 }
 
 google.charts.load('current', {'packages':['corechart']});
@@ -135,7 +226,7 @@ function drawChart() {
   data.addColumn('number', 'Count');
     data.addRows([
       ['High Fantasy', 17],
-      ['Action', 11],
+      ['Science Fiction', 11],
       ['Adventure', 3],
       ['Realistic Fiction', 6],
       ['Nonfiction', 2],

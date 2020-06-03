@@ -177,11 +177,11 @@ body {
 #map {
   border: thin solid black;
   height: 500px;
-  width: 500px;
+  width: 1000px;
 }
 
 #chart-container {
   border: thin solid black;
-  position: center;
+  margin: auto;
   width: 100%;
 }

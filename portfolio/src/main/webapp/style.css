@@ -64,7 +64,7 @@ body {
 }
 
 /*Stack style for Reading List*/
-.compare {
+.books {
   background-image: url("/images/book.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -177,5 +177,11 @@ body {
 #map {
   border: thin solid black;
   height: 500px;
-  width: 500px;
+  width: 1000px;
+}
+
+#chart-container {
+  border: thin solid black;
+  margin: auto;
+  width: 100%;
 }

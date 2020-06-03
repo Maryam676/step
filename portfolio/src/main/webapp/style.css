@@ -179,3 +179,8 @@ body {
   height: 500px;
   width: 500px;
 }
+
+/*Reading list chart*/
+#chart-container {
+  border: thin solid black;
+}

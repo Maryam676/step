@@ -209,6 +209,18 @@ function createMap() {
     title: 'Charminar, Old City'
   });
 
+  const museumMarker = new google.maps.Marker({
+    position: {lat: 41.866133, lng: -87.616981},
+    map: map,
+    title: 'Field Museum'
+  });
+
+  const zooMarker = new google.maps.Marker({
+    position: {lat: 41.921022, lng: -87.633581},
+    map: map,
+    title: 'Lincoln Park Zoo'
+  });
+
   const ksMarker = new google.maps.Marker({
     position: {lat: 44.251054, lng: -76.433400},
     map: map,

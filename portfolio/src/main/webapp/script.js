@@ -136,6 +136,7 @@ function drawChart() {
     data.addRows([
       ['High Fantasy', 17],
       ['Realistic Fiction', 6],
+      ['Nonfiction', 2],
       ['Urban Fantasy', 4],
       ['Horror', 5]
     ]);

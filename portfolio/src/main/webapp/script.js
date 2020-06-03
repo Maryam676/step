@@ -209,6 +209,18 @@ function createMap() {
     title: 'Charminar, Old City'
   });
 
+  const ksMarker = new google.maps.Marker({
+    position: {lat: 44.251054, lng: -76.433400},
+    map: map,
+    title: 'Kingston, ON'
+  });
+
+  const njMarker = new google.maps.Marker({
+    position: {lat: 40.402989, lng: -74.038380},
+    map: map,
+    title: 'New Jersey'
+  });
+
   const bangaloreMarker = new google.maps.Marker({
     position: {lat: 12.951283, lng: 77.585610},
     map: map,

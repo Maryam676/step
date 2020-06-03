@@ -63,6 +63,18 @@ body {
   margin-top: 15px;
 }
 
+/*Stack style for Reading List*/
+.compare {
+  background-image: url("/images/book.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+}
+
 /*Stack style for Projects*/
 .proj {
   background-image: url("/images/blue.png");

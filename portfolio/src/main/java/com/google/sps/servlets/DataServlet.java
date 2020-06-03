@@ -44,15 +44,6 @@ public class DataServlet extends HttpServlet {
 
     String userComment = getParameter(request, "comments", "");
 
-    // // Sentiment analysis
-    // Document doc = Document.newBuilder().setContent(userComment).setType(Document.Type.PLAIN_TEXT).build();
-    // LanguageServiceClient languageService = LanguageServiceClient.create();
-    // Sentiment sentiment = languageService.analyzeSentiment(doc).getDocumentSentiment();
-    // float score = sentiment.getScore();
-    // languageService.close();
-
-    // System.out.println("The sentiment score of the comment is: " + score);
-
     // Create a visitor entity with comment string as the only property
     Entity taskEntity = new Entity("Visitor");
     taskEntity.setProperty("comments", userComment);

@@ -135,6 +135,8 @@ function drawChart() {
   data.addColumn('number', 'Count');
     data.addRows([
       ['High Fantasy', 17],
+      ['Action', 11],
+      ['Adventure', 3],
       ['Realistic Fiction', 6],
       ['Nonfiction', 2],
       ['Urban Fantasy', 4],

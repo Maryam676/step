@@ -121,40 +121,43 @@
     </div>
     </div>
 
+    <!--Display a map on the page-->
+    <div class="mapAPI">
+      <h2>Explore the world map to see all the places I have visited:</h2>
+      <div id="map"></div>
+    </div>
+
     <!--Allow a site visitor to leave a comment-->
     <div class="comments">
+      <h2>Comments</h2>
+
+        <!--Server messages-->
+        <button onclick="getMessage()">Show Messages</button>
+        <div id="msg-container"></div>
+
+        <!--Set a limit to the number of comments displayed with selection options-->  
+        <label for="limit"><br/>Limit</label>
+        <select id="limitUserComments" onchange="breakComments()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+          
       <h2>Leave a Message</h2>
 
         <!--Post-->
         <form action="/data" method="POST">
-          <p>Enter a comment:</p>
           <textarea name="comments"></textarea>
           <br/><br/>
           <input type="submit" />
         </form>
 
-        <!--Server messages-->
-        <p>Click here to retrieve comments:</p>
-        <button onclick="getMessage()">Fetch messages!</button>
-        <div id="msg-container"></div>
-
-        <!--Set a limit to the number of comments displayed with selection options-->  
-        <label for="limit">Choose a limit to the # of Comments</label>
-        <select id="limitUserComments" onchange="breakComments()">
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-        </select>
+        <br/>
 
         <!--Provide option for clearing out all comments-->
         <button onclick="deleteComments()">Delete all comments</button>
 
-    </div>
-
-    <!--Display a map on the page-->
-    <div class="mapAPI">
-      <h2>Explore the world map to see all the places I have visited:</h2>
-      <div id="map"></div>
     </div>
 
   </body>

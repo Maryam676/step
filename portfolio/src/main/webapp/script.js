@@ -120,9 +120,80 @@ function createListElement(text) {
 
 /* Creates a map and adds it to the page. */
 function createMap() {
-  const map = new google.maps.Map(
-      document.getElementById('map'),
-      {center: {lat: 41.994973, lng: -88.195170}, zoom: 7});
+  const map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 41.994973, lng: -88.195170}, 
+    zoom: 7,
+    styles: [
+      {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+      {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+      {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        stylers: [{color: '#233a5c'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#b6bdc9'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.stroke',
+        stylers: [{color: '#233a5c'}]
+      },
+      {
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#da9f72'}]
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#da9f72'}]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        stylers: [{color: '#395b60'}]
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#95b79d'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{color: '#404a59'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#263140'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#a9b0bc'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        stylers: [{color: '#756a57'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        stylers: [{color: '#263140'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#f4d5a4'}]
+      },
+    ]
+  });
 
   /* Places I've been to */
   const sixFlagsMarker = new google.maps.Marker({
@@ -209,6 +280,30 @@ function createMap() {
     title: 'Charminar, Old City'
   });
 
+  const museumMarker = new google.maps.Marker({
+    position: {lat: 41.866133, lng: -87.616981},
+    map: map,
+    title: 'Field Museum'
+  });
+
+  const zooMarker = new google.maps.Marker({
+    position: {lat: 41.921022, lng: -87.633581},
+    map: map,
+    title: 'Lincoln Park Zoo'
+  });
+
+  const ksMarker = new google.maps.Marker({
+    position: {lat: 44.251054, lng: -76.433400},
+    map: map,
+    title: 'Kingston, ON'
+  });
+
+  const njMarker = new google.maps.Marker({
+    position: {lat: 40.402989, lng: -74.038380},
+    map: map,
+    title: 'New Jersey'
+  });
+
   const bangaloreMarker = new google.maps.Marker({
     position: {lat: 12.951283, lng: 77.585610},
     map: map,
@@ -235,8 +330,9 @@ function drawChart() {
     ]);
 
   const options = {
-    'width':400,
-    'height':400
+    'width':600,
+    'height':400,
+    'is3d': true
   };
 
   const chart = new google.visualization.PieChart(

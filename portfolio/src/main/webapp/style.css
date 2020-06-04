@@ -69,7 +69,6 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  text-align: center;
   color: white;
   padding: 15px;
   margin-top: 15px;
@@ -159,25 +158,25 @@ body {
 
 /*Specify the style of the comment section*/
 .comments {
-  background-color: grey;
-  padding: 30px;
+  background-color: black;
+  padding: 15px;
   color: white;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 /* Specify the style of the map section*/
 .mapAPI {
-  background-color: grey;
-  padding: 30px;
+  background-color:black;
+  padding: 15px;
   color: white;
-  margin-top: 30px;
+  margin-top: 15px;
 }  
 
 /*Add a map to the page*/
 #map {
-  border: thin solid black;
+  border: thick solid white;
   height: 500px;
-  width: 1000px;
+  width: 1450px;
 }
 
 #chart-container {

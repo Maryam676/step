@@ -129,15 +129,7 @@
 
     <!--Allow a site visitor to leave a comment-->
     <div class="comments">
-      <h2>Leave a Message</h2>
-
-        <!--Post-->
-        <form action="/data" method="POST">
-          <p>Enter a comment:</p>
-          <textarea name="comments"></textarea>
-          <br/><br/>
-          <input type="submit" />
-        </form>
+      <h2>Comments</h2>
 
         <!--Server messages-->
         <p>Click here to retrieve comments:</p>
@@ -152,6 +144,16 @@
           <option value="15">15</option>
           <option value="20">20</option>
         </select>
+          
+      <h2>Leave a Message</h2>
+
+        <!--Post-->
+        <form action="/data" method="POST">
+          <p>Enter a comment:</p>
+          <textarea name="comments"></textarea>
+          <br/><br/>
+          <input type="submit" />
+        </form>
 
         <!--Provide option for clearing out all comments-->
         <button onclick="deleteComments()">Delete all comments</button>

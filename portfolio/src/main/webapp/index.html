@@ -132,12 +132,11 @@
       <h2>Comments</h2>
 
         <!--Server messages-->
-        <p>Click here to retrieve comments:</p>
-        <button onclick="getMessage()">Fetch messages!</button>
+        <button onclick="getMessage()">Show Messages</button>
         <div id="msg-container"></div>
 
         <!--Set a limit to the number of comments displayed with selection options-->  
-        <label for="limit">Choose a limit to the # of Comments</label>
+        <label for="limit"><br/>Limit</label>
         <select id="limitUserComments" onchange="breakComments()">
           <option value="5">5</option>
           <option value="10">10</option>
@@ -154,6 +153,8 @@
           <br/><br/>
           <input type="submit" />
         </form>
+
+        <br/>
 
         <!--Provide option for clearing out all comments-->
         <button onclick="deleteComments()">Delete all comments</button>

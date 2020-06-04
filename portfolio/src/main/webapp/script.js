@@ -330,8 +330,9 @@ function drawChart() {
     ]);
 
   const options = {
-    'width':400,
-    'height':400
+    'width':500,
+    'height':400,
+    'is3d': true
   };
 
   const chart = new google.visualization.PieChart(

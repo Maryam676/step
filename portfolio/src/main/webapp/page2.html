@@ -4,12 +4,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>API</title>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="api.css">
-    <script src="script.js"></script>
+    <script src="page2.js"></script>
   </head>
 
   <body>
     <h2>API page</h2>
+    <div id="chart-container"></div>
+    <h3>Vote</h3>
+    <form action="/animal-data" method="POST">
+      <select name="animal">
+        <option value="Cheetah">Cheetah</option>
+        <option value="Dolphin">Dolphin</option>
+        <option value="Elephant">Elephant</option>
+        <option value="Lion">Lion</option>
+        <option value="Cat">Cat</option>
+        <option value="Panda">Panda</option>
+        <option value="Bear">Bear</option>
+        <option value="Monkey">Monkey</option>
+        <option value="Bird">Bird</option>
+        <option value="Horse">Horse</option>
+      </select>
+      <button>Submit</button>
+    </form>
   </body>
 </html>

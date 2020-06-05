@@ -66,10 +66,11 @@ public class DataServlet extends HttpServlet {
     }
   }
 
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    private ArrayList<String> msgs = new ArrayList<String>();
+    ArrayList<String> msgs = new ArrayList<String>();
 
     // Obtain comments from datastore and filter them into results query
     Query query = new Query("Visitor");

@@ -14,3 +14,27 @@
 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
+
+/** Obtain animal votes and create a bar graph */
+function drawChart() {
+  fetch('/animal-data').then(response => response.json())
+  .then((animalVotes) => {
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Animal');
+    data.addColumn('number', 'Votes');
+    Object.keys(animalVotes).forEach((animal) => {
+      data.addRow([animal, animalVotes[animal]]);
+    });
+ 
+    // Size the chart and create label
+    const options = {
+      'title': 'Favorite Animals',
+      'width':800,
+      'height':500
+    };
+ 
+    const chart = new google.visualization.ColumnChart(
+        document.getElementById('chart-container'));
+    chart.draw(data, options);
+  });
+}

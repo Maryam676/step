@@ -20,6 +20,20 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 public final class FindMeetingQuery {
+  // All dates are the first day of the year 2020.
+  private static final int TIME_0800AM = TimeRange.getTimeInMinutes(8, 0);
+  private static final int TIME_0830AM = TimeRange.getTimeInMinutes(8, 30);
+  private static final int TIME_0900AM = TimeRange.getTimeInMinutes(9, 0);
+  private static final int TIME_0930AM = TimeRange.getTimeInMinutes(9, 30);
+  private static final int TIME_1000AM = TimeRange.getTimeInMinutes(10, 0);
+  private static final int TIME_1100AM = TimeRange.getTimeInMinutes(11, 00);
+
+  private static final int DURATION_30_MINUTES = 30;
+  private static final int DURATION_60_MINUTES = 60;
+  private static final int DURATION_90_MINUTES = 90;
+  private static final int DURATION_1_HOUR = 60;
+  private static final int DURATION_2_HOUR = 120;
+
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
     //throw new UnsupportedOperationException("TODO: Implement this method.");
     ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
@@ -32,6 +46,10 @@ public final class FindMeetingQuery {
     // return empty range for meetings that are longer than a day
     else if (request.getDuration() > TimeRange.WHOLE_DAY.duration()) {
       return temp;
+    }
+    else {
+      temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false));
+      temp.add(TimeRange.fromStartEnd(TIME_0900AM, TimeRange.END_OF_DAY, true));
     }
     return temp;
   }

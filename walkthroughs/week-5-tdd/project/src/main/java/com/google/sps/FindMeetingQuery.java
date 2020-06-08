@@ -15,9 +15,20 @@
 package com.google.sps;
 
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public final class FindMeetingQuery {
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    throw new UnsupportedOperationException("TODO: Implement this method.");
+    //throw new UnsupportedOperationException("TODO: Implement this method.");
+    ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
+
+    // if there are no events scheduled, entire day available
+    if (events.isEmpty()) {
+      temp.add(TimeRange.WHOLE_DAY);
+      return temp;
+    }
+    return temp;
   }
 }

@@ -38,7 +38,7 @@ public final class FindMeetingQuery {
     ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
 
     // if there are no events scheduled, entire day available
-    if (events.isEmpty()) {
+    if (events.isEmpty() &&  (request.getDuration() <TimeRange.WHOLE_DAY.duration())){
       temp.add(TimeRange.WHOLE_DAY);
       return temp;
     }

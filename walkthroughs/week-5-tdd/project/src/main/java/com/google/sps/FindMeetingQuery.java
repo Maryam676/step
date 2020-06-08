@@ -35,7 +35,6 @@ public final class FindMeetingQuery {
   private static final int DURATION_2_HOUR = 120;
 
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    //throw new UnsupportedOperationException("TODO: Implement this method.");
     ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
 
     // if there are no events scheduled, entire day available
@@ -48,8 +47,16 @@ public final class FindMeetingQuery {
       return temp;
     }
     else {
-      temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false));
-      temp.add(TimeRange.fromStartEnd(TIME_0900AM, TimeRange.END_OF_DAY, true));
+      // for just one event, times before/after are available
+      if (events.size() == 1) {
+        for (Event activity : events) {
+          int meetingStartTime = activity.getWhen().start();
+          int meetingEndTime = activity.getWhen().end();
+          temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, meetingStartTime, false));
+          temp.add(TimeRange.fromStartEnd(meetingEndTime, TimeRange.END_OF_DAY, true));
+          return temp;
+        }
+      }
     }
     return temp;
   }

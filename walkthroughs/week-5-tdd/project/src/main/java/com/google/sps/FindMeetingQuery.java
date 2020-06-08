@@ -29,6 +29,10 @@ public final class FindMeetingQuery {
       temp.add(TimeRange.WHOLE_DAY);
       return temp;
     }
+    // return empty range for meetings that are longer than a day
+    else if (request.getDuration() > TimeRange.WHOLE_DAY.duration()) {
+      return temp;
+    }
     return temp;
   }
 }

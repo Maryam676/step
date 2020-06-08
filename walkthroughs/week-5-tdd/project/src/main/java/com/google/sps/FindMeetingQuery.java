@@ -15,11 +15,13 @@
 package com.google.sps;
 
 import java.util.Collection;
+import java.util.Set;
 import java.util.Comparator;
 import java.util.Arrays;
 import java.util.ArrayList;
 
 public final class FindMeetingQuery {
+
   // All dates are the first day of the year 2020.
   private static final int TIME_0800AM = TimeRange.getTimeInMinutes(8, 0);
   private static final int TIME_0830AM = TimeRange.getTimeInMinutes(8, 30);
@@ -35,7 +37,8 @@ public final class FindMeetingQuery {
   private static final int DURATION_2_HOUR = 120;
 
   public Collection<TimeRange> query(Collection<Event> events, MeetingRequest request) {
-    ArrayList<TimeRange> temp = new ArrayList<TimeRange>();
+    
+    ArrayList<TimeRange> temp = new ArrayList<TimeRange>(); // holds available meeting times
 
     // if there are no events scheduled, entire day available
     if (events.isEmpty() &&  (request.getDuration() <TimeRange.WHOLE_DAY.duration())){
@@ -49,7 +52,23 @@ public final class FindMeetingQuery {
     else {
       // for just one event, times before/after are available
       if (events.size() == 1) {
+
+        Collection<String> attendees = request.getAttendees(); // store all event attendees into a collection
+        
+        // look at one event, determine who is attending, calculate free time
         for (Event activity : events) {
+          Set<String> eventGoers = activity.getAttendees();
+
+          // check if our meeting attendee is part of eventgoers
+          for (String person : attendees) {
+            // boolean con = eventGoers.contains(person);
+            if (!eventGoers.contains(person)) {
+              temp.add(TimeRange.WHOLE_DAY); // whole day available if meeting attendee does not have other events scheduled
+              return temp;
+            }
+          }
+
+          // calculate free time for meeting attendee
           int meetingStartTime = activity.getWhen().start();
           int meetingEndTime = activity.getWhen().end();
           temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, meetingStartTime, false));

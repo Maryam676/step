@@ -114,7 +114,7 @@ public final class FindMeetingQuery {
           return temp;
         }
         // just enough room, not enough room check
-        if ((a.getWhen().start() == 0) && b.getWhen().end() == 1440) {
+        else if ((a.getWhen().start() == 0) && b.getWhen().end() == 1440) {
           // there's just enough room for the meeting
           if (request.getDuration() <= (b.getWhen().start() - a.getWhen().end())) {
             temp.add(TimeRange.fromStartEnd(a.getWhen().end(), b.getWhen().start(), false));
@@ -125,6 +125,12 @@ public final class FindMeetingQuery {
             System.out.println("There's not enough room for the duration of the meeting.");
             return temp;
           }
+        }
+        // allow plans between Event A and Event B
+        else {
+          temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, a.getWhen().start(), false));
+          temp.add(TimeRange.fromStartEnd(a.getWhen().end(), b.getWhen().start(), false));
+          temp.add(TimeRange.fromStartEnd(b.getWhen().end(), TimeRange.END_OF_DAY, true));
         }
       }
     }

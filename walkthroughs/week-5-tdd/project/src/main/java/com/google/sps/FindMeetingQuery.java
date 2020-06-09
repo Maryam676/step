@@ -92,8 +92,25 @@ public final class FindMeetingQuery {
 
         // case where one event overlaps another
         if (a.getWhen().overlaps(b.getWhen()) || b.getWhen().overlaps(a.getWhen())) {
-          temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false));
-          temp.add(TimeRange.fromStartEnd(TIME_1000AM, TimeRange.END_OF_DAY, true));
+          int startBlock;
+          int endBlock;
+          
+          // calculate earliest start time, latest end time
+          if (a.getWhen().start() < b.getWhen().start()) {
+            startBlock = a.getWhen().start();
+          }
+          else {
+            startBlock = b.getWhen().start();
+          }
+
+          if (a.getWhen().end() > b.getWhen().end()) {
+            endBlock = a.getWhen().end();
+          }
+          else {
+            endBlock = b.getWhen().end();
+          }
+          temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, startBlock, false));
+          temp.add(TimeRange.fromStartEnd(endBlock, TimeRange.END_OF_DAY, true));
         }
       }
     }

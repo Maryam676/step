@@ -94,7 +94,7 @@ public final class FindMeetingQuery {
         if (a.getWhen().overlaps(b.getWhen()) || b.getWhen().overlaps(a.getWhen())) {
           int startBlock;
           int endBlock;
-          
+
           // calculate earliest start time, latest end time
           if (a.getWhen().start() < b.getWhen().start()) {
             startBlock = a.getWhen().start();
@@ -111,6 +111,20 @@ public final class FindMeetingQuery {
           }
           temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, startBlock, false));
           temp.add(TimeRange.fromStartEnd(endBlock, TimeRange.END_OF_DAY, true));
+          return temp;
+        }
+        // just enough room, not enough room check
+        if ((a.getWhen().start() == 0) && b.getWhen().end() == 1440) {
+          // there's just enough room for the meeting
+          if (request.getDuration() <= (b.getWhen().start() - a.getWhen().end())) {
+            temp.add(TimeRange.fromStartEnd(a.getWhen().end(), b.getWhen().start(), false));
+            return temp;
+          }
+          // meeting duration does not fit into gap in schedule
+          else {
+            System.out.println("There's not enough room for the duration of the meeting.");
+            return temp;
+          }
         }
       }
     }

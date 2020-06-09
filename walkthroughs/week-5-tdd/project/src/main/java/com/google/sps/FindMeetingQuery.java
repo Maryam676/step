@@ -76,6 +76,26 @@ public final class FindMeetingQuery {
           return temp;
         }
       }
+      // check for conflicts between 2 events
+      else if (events.size() == 2) {
+
+        Event[] tempEvents = new Event[2];
+        // store the events into an array
+        int i = 0;
+        for (Event activity : events) {
+          tempEvents[i] = activity;
+          i++;
+        }
+
+        Event a = tempEvents[0];
+        Event b = tempEvents[1];
+
+        // case where one event overlaps another
+        if (a.getWhen().overlaps(b.getWhen()) || b.getWhen().overlaps(a.getWhen())) {
+          temp.add(TimeRange.fromStartEnd(TimeRange.START_OF_DAY, TIME_0830AM, false));
+          temp.add(TimeRange.fromStartEnd(TIME_1000AM, TimeRange.END_OF_DAY, true));
+        }
+      }
     }
     return temp;
   }

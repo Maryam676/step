@@ -51,6 +51,8 @@ public class DataServlet extends HttpServlet {
     // Store the comment into the datastore
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(taskEntity);
+
+    response.sendRedirect("/index.html");
   }
 
   // Return empty string if no comment, otherwise return text
@@ -64,6 +66,7 @@ public class DataServlet extends HttpServlet {
     }
   }
 
+  
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
@@ -88,8 +91,9 @@ public class DataServlet extends HttpServlet {
     }
 
     // Display the messages
-    Gson gson = new Gson();
     response.setContentType("application/json;");
-    response.getWriter().println(gson.toJson(msgs));
+    Gson gson = new Gson();
+    String json = gson.toJson(msgs);
+    response.getWriter().println(json);
   }
 }

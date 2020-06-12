@@ -12,21 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
-
 /*User decides which ice cream they like better*/
 function clickIceCream() {
   let flavor = prompt("Chocolate or vanilla?", "");
@@ -41,7 +26,7 @@ function clickIceCream() {
   }
 }
 
-/*User decides which ice cream they like better*/
+/*User decides which comfort food they like better*/
 function clickComfFood() {
   let food = prompt("Do you prefer pasta or pizza?", "");
   if (food == "pizza") {
@@ -118,7 +103,7 @@ function createListElement(text) {
   return liElement;
 }
 
-/* Creates a map and adds it to the page. */
+/* Creates a map in dark mode and adds it to the page. */
 function createMap() {
   const map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 41.994973, lng: -88.195170}, 
@@ -268,6 +253,12 @@ function createMap() {
     title: 'Niagara Falls'
   });
 
+  const nwMarker = new google.maps.Marker({
+    position: {lat: 42.050373, lng: -87.673111},
+    map: map,
+    title: 'Northwestern University'
+  });
+
   const abuDhabiMarker = new google.maps.Marker({
     position: {lat: 24.441498, lng: 54.649505},
     map: map,
@@ -329,12 +320,14 @@ function drawChart() {
       ['Horror', 5]
     ]);
 
+  // Determine the size and shape of the chart
   const options = {
     'width':600,
     'height':400,
     'is3d': true
   };
 
+  // Display the chart on the page
   const chart = new google.visualization.PieChart(
       document.getElementById('chart-container'));
   chart.draw(data, options);

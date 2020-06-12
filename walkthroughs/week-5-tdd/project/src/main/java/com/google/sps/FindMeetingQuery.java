@@ -41,18 +41,19 @@ public final class FindMeetingQuery {
     ArrayList<TimeRange> temp = new ArrayList<TimeRange>(); // holds available meeting times
 
     // if there are no events scheduled, entire day available
-    if (events.isEmpty() &&  (request.getDuration() <TimeRange.WHOLE_DAY.duration())){
+    if (events.isEmpty() &&  (request.getDuration() < TimeRange.WHOLE_DAY.duration())){
       temp.add(TimeRange.WHOLE_DAY);
       return temp;
     }
+
     // return empty range for meetings that are longer than a day
     else if (request.getDuration() > TimeRange.WHOLE_DAY.duration()) {
       return temp;
     }
+
     else {
       // for just one event, times before/after are available
       if (events.size() == 1) {
-
         Collection<String> attendees = request.getAttendees(); // store all event attendees into a collection
         
         // look at one event, determine who is attending, calculate free time
@@ -76,6 +77,7 @@ public final class FindMeetingQuery {
           return temp;
         }
       }
+
       // check for conflicts between 2 events
       else if (events.size() == 2) {
 

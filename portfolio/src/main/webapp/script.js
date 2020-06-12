@@ -322,7 +322,7 @@ function drawChart() {
 
   // Determine the size and shape of the chart
   const options = {
-    'width':600,
+    'width':550,
     'height':400,
     'is3d': true
   };

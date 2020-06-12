@@ -324,7 +324,6 @@ function drawChart() {
   const options = {
     'width':550,
     'height':400,
-    'is3d': true
   };
 
   // Display the chart on the page
